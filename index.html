@@ -1,85 +1,4 @@
-<!doctype html>
-<html lang="">
-  <head>
-    <meta charset="utf-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="manifest" href="/manifest.json">
-    <title>Line Themes</title>
-
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
-    <!-- Place favicon.ico in the root directory -->
-
-    <!-- build:css styles/vendor.css -->
-    <!-- bower:css -->
-    <link rel="stylesheet" href="/bower_components/material-design-lite/material.min.css" />
-    <link rel="stylesheet" href="/bower_components/please-wait/build/please-wait.css" />
-    <!-- endbower -->
-    <!-- endbuild -->
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-
-    <!-- build:css styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
-
-
-  </head>
-  <body>
-    <!--[if IE]>
-      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
-
-
-    <!-- TDH: Body Start -->
-    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
-            mdl-layout--fixed-header">
-      <header class="mdl-layout__header">
-        <div class="mdl-layout__header-row">
-          <div class="mdl-layout-spacer"></div>
-          <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
-                      mdl-textfield--floating-label mdl-textfield--align-right">
-            <label class="search-button mdl-button mdl-js-button mdl-button--icon"
-                   for="fixed-header-drawer-exp">
-              <i class="material-icons">search</i>
-            </label>
-            <div class="mdl-textfield__expandable-holder">
-              <input class="mdl-textfield__input" type="text" name="sample"
-                     id="fixed-header-drawer-exp">
-            </div>
-          </div>
-        </div>
-      </header>
-      <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><a href="/" onclick="toggleDrawer(this)">LINE THEMES</a></span>
-        <nav class="mdl-navigation">
-          <a class="mdl-navigation__link" href="officials" onclick="toggleDrawer(this)">Officials</a>
-          <a class="mdl-navigation__link" href="creators" onclick="toggleDrawer(this)">Creators</a>
-        </nav>
-      </div>
-      <main class="mdl-layout__content">
-        <div class="page-content">
-            <section id="content"></section>
-
-            <div id="toast-download" class="mdl-js-snackbar mdl-snackbar">
-              <div class="mdl-snackbar__text"></div>
-              <button class="mdl-snackbar__action" type="button"></button>
-            </div>
-        </div>
-        <!-- <footer class="mdl-mini-footer">
-          <div class="mdl-mini-footer__left-section">
-          </div>
-          <div class="mdl-mini-footer__middle-section">
-            <div class="mdl-logo">Line Themes</div>
-          </div>
-        </footer> -->
-      </main>
-    </div>
-
-
-    <!-- HOME PAGE -->
-    <script id="home-page" type="text/x-template">
-      <div class="layout-banner home">
+<!doctype html><html><head><meta charset="utf-8"><meta name="description" content=""><meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no"><link rel="manifest" href="/manifest.json"><title>Line Themes</title><link rel="apple-touch-icon" href="apple-touch-icon.png"><link rel="stylesheet" href="styles/vendor.css"><link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"><link rel="stylesheet" href="styles/main.css"></head><body><!--[if IE]><p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p><![endif]--><div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header"><header class="mdl-layout__header"><div class="mdl-layout__header-row"><div class="mdl-layout-spacer"></div><div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right"><label class="search-button mdl-button mdl-js-button mdl-button--icon" for="fixed-header-drawer-exp"><i class="material-icons">search</i></label><div class="mdl-textfield__expandable-holder"><input class="mdl-textfield__input" type="text" name="sample" id="fixed-header-drawer-exp"></div></div></div></header><div class="mdl-layout__drawer"><span class="mdl-layout-title"><a href="/" onclick="toggleDrawer(this)">LINE THEMES</a></span><nav class="mdl-navigation"><a class="mdl-navigation__link" href="officials" onclick="toggleDrawer(this)">Officials</a> <a class="mdl-navigation__link" href="creators" onclick="toggleDrawer(this)">Creators</a></nav></div><main class="mdl-layout__content"><div class="page-content"><section id="content"></section><div id="toast-download" class="mdl-js-snackbar mdl-snackbar"><div class="mdl-snackbar__text"></div><button class="mdl-snackbar__action" type="button"></button></div></div></main></div><script id="home-page" type="text/x-template"><div class="layout-banner home">
         <img src="/images/banner.png">
       </div>
       <div class="content-section officials-section">
@@ -91,13 +10,7 @@
         <a href="creators" id="creators-link"><h4 class="title-section">CREATORS' THEMES &gt;&gt;</h4></a>
         <div class="mdl-grid theme-box" id="theme-creators">
         </div>
-      </div>
-    </script>
-
-
-    <!-- OFFICIAL THEME PAGE -->
-    <script id="officials-page" type="text/x-template">
-      <div class="layout-banner officials">
+      </div></script><script id="officials-page" type="text/x-template"><div class="layout-banner officials">
         <img src="/images/banner_ofc.png">
       </div>
       <div class="content-section">
@@ -133,13 +46,7 @@
             </button>
           </span>
         </div>
-      </div>
-    </script>
-
-
-    <!-- CREATORS' THEME PAGE -->
-    <script id="creators-page" type="text/x-template">
-      <div class="layout-banner creators">
+      </div></script><script id="creators-page" type="text/x-template"><div class="layout-banner creators">
         <img src="/images/banner_crt.png">
       </div>
       <div class="content-section">
@@ -175,13 +82,7 @@
             </button>
           </span>
         </div>
-      </div>
-    </script>
-
-
-    <!-- SEARCH PAGE -->
-    <script id="search-page" type="text/x-template">
-      <div class="content-section">
+      </div></script><script id="search-page" type="text/x-template"><div class="content-section">
         <div class="title-section">
           <span id='search-result' style="color:#FFF"></span>
           <div class="pagination">
@@ -216,13 +117,7 @@
             </button>
           </span>
         </div>
-      </div>
-    </script>
-
-
-    <!-- THEME PAGE -->
-    <script id="theme-page" type="text/x-template">
-      <div class="content-section">
+      </div></script><script id="theme-page" type="text/x-template"><div class="content-section">
         <div class="mdl-grid theme-box">
           <div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone">
             <img class="theme-thumb mdl-shadow--2dp" src="/images/dummy/thumb-preview.png" width="186" height="260">
@@ -258,35 +153,4 @@
           </div>
         </div>
 
-      </div>
-    </script>
-
-
-    <!-- TDH: Body End -->
-
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-    <script>
-      (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-      function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-      e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-      e.src='https://www.google-analytics.com/analytics.js';
-      r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-      ga('create','UA-XXXXX-X');ga('send','pageview');
-    </script>
-
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/page/page.js"></script>
-    <script src="/bower_components/material-design-lite/material.min.js"></script>
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/please-wait/build/please-wait.js"></script>
-    <script src="/bower_components/fuzzy/lib/fuzzy.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-
-
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
-  </body>
-</html>
+      </div></script><script>!function(e,t,a,n,c,o){e.GoogleAnalyticsObject=n,e[n]||(e[n]=function(){(e[n].q=e[n].q||[]).push(arguments)}),e[n].l=+new Date,c=t.createElement(a),o=t.getElementsByTagName(a)[0],c.src="https://www.google-analytics.com/analytics.js",o.parentNode.insertBefore(c,o)}(window,document,"script","ga"),ga("create","UA-XXXXX-X"),ga("send","pageview")</script><script src="scripts/vendor.js"></script><script src="scripts/main.js"></script></body></html>
