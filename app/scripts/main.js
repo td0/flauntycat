@@ -73,7 +73,7 @@ $.when(off_ajax(),cre_ajax()).done(function(){
   idx_crt=Object.keys(thm_creators);
   idx_all=idx_ofc.concat(idx_crt);
 
-  page.base('/');
+  page.base('/flauntycat/');
   page('*', function(ctx,  next){
     var content = document.querySelector('#content');
     if (ctx.init) {
@@ -302,7 +302,7 @@ function fillSearch(qs){
   var searchcount = '<b style="color:green">Search ';
   searchcount += (result.length > 1)? 'results </b>: ':'result </b>: ';
   searchcount += result.length;
-  $("#search-result").html(searchcount);
+  $('#search-result').html(searchcount);
 
   paginator(pg[1],result.length,'search?q='+qry+'&');
   console.log('Search Filled');
@@ -353,8 +353,8 @@ function fillTheme(qs){
 
 function paginator(current_page,total_item,path){
   var itemppg = 24;
-  var nextbtn = $(".page-next");
-  var prevbtn = $(".page-prev");
+  var nextbtn = $('.page-next');
+  var prevbtn = $('.page-prev');
   var totalpage = Math.floor(total_item/itemppg)+1;
   if(current_page == 1){
     prevbtn.prop('disabled', true);
@@ -362,18 +362,18 @@ function paginator(current_page,total_item,path){
   if(current_page==totalpage){
     nextbtn.prop('disabled', true);
   }
-  $(".pagination-indicator").html("page "+current_page+"/"+totalpage);
+  $('.pagination-indicator').html('page '+current_page+'/'+totalpage);
   nextbtn.off();
   prevbtn.off();
   nextbtn.on('click',function(){
     if(current_page==1) prevbtn.prop('disabled', false);
     current_page++;
-    page(path+"p="+current_page);
+    page(path+'p='+current_page);
   });
   prevbtn.on('click',function(){
     if(current_page==totalpage) nextbtn.prop('disabled', false);
     current_page--;
-    page(path+"p="+current_page);
+    page(path+'p='+current_page);
   });
 }
 
@@ -399,5 +399,5 @@ $('input[name=\'sample\']').on('keyup',function(e){
 });
 
 function toggleDrawer(a){
-  $(".mdl-layout__drawer-button").trigger();
+  $('.mdl-layout__drawer-button').trigger();
 }
