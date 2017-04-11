@@ -73,7 +73,7 @@ $.when(off_ajax(),cre_ajax()).done(function(){
   idx_crt=Object.keys(thm_creators);
   idx_all=idx_ofc.concat(idx_crt);
 
-  page.base('/flauntycat/');
+  page.base('/');
   page('*', function(ctx,  next){
     var content = document.querySelector('#content');
     if (ctx.init) {
@@ -94,7 +94,7 @@ $.when(off_ajax(),cre_ajax()).done(function(){
     popstate:true,
     dispatch:true,
     decodeURLComponents:true,
-    hashbang:true
+    hashbang:false
   });
 
   loading_screen.finish();
