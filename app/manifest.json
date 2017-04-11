@@ -1,0 +1,24 @@
+{
+  "short_name": "LineTheme",
+  "name": "Flaunty Cat",
+  "display": "standalone",
+  "theme_color": "#388E3C",
+  "icons": [
+    {
+      "src": "apple-touch-icon.jpg",
+      "type": "image/png",
+      "sizes": "48x48"
+    },
+    {
+      "src": "apple-touch-icon.jpg",
+      "type": "image/png",
+      "sizes": "96x96"
+    },
+    {
+      "src": "apple-touch-icon.jpg",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/"
+}
