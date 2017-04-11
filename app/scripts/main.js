@@ -10,33 +10,38 @@ v - create official pagination
 v - do creators part
 v - do search page
 */
+var loading_screen;
+(function(){
+  var loading_gif = '/images/loading'+Math.floor((Math.random() * 7))+'.gif';
+  var loading_color= ['#607D8B','#795548','#F4511E','#FF3D00','#FBC02D','#43A047','#009688'
+    ,'#0097A7', '#039BE5','#3D5AFE','#673AB7','#8E24AA','#D81B60','#E53935'];
+  var loading_words = ['Amazing things come to those who wait.',
+  'Glorious things are waiting for you. We\'re just getting them ready.',
+  'Don\'t wait for the perfect moment. Take the moment and make it perfect',
+  'You look nice today','Don\'t wait for opportunity. Create it.',
+  'If you spend your whole life waiting for the storm, you\'ll never enjoy the sunshine',
+  'A good day to you fine user!', 'You can\'t wait for inspiration. You have to go after it with a club',
+  'Have a wonderful day!', '>> 😸😺😸😺😸😺😸 <<','It\'ll get faster overtime 😉'];
 
-var loading_gif = '/images/loading'+Math.floor((Math.random() * 7))+'.gif'
-var loading_words = ['Amazing things come to those who wait.',
-'Glorious things are waiting for you. We\'re just getting them ready.',
-'You look nice today',
-'Don\'t wait for the perfect moment. Take the moment and make it perfect',
-'Don\'t wait for opportunity. Create it.',
-'If you spend your whole life waiting for the storm, you\'ll never enjoy the sunshine',
-'A good day to you fine user!'];
-
-var loading_screen = pleaseWait({
-  logo: loading_gif,
-  backgroundColor: '#2E7D32',
-  loadingHtml: '<p class="loading-message">'+loading_words[Math.floor((Math.random() * 7))]+
-                `</p><br /><br />
-                <div class="spinner">
-                  <div class="dot1"></div>
-                  <div class="dot2"></div>
-                </div>`
-});
+  loading_screen = pleaseWait({
+    logo: loading_gif,
+    backgroundColor: loading_color[Math.floor((Math.random() * loading_color.length))],
+    loadingHtml: '<p class="loading-message">'+loading_words[Math.floor((Math.random() * loading_words.length))]+
+                  `</p><br /><br />
+                  <div class="spinner">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                  </div>`
+  });
+})();
 
 //--> fetch theme .json data
 var thm_officials={}
     ,thm_creators={}
     ,idx_ofc=[]
     ,idx_crt=[]
-    ,idx_all=[];
+    ,idx_all=[],
+    cpage='';
 const thm_templates= {
   dlink:'http://dl.shop.line.naver.jp/themeshop/v1/products/<THEME_ID>/<DEVICE_PLATFORM>/theme.zip',
   img:{
@@ -76,12 +81,13 @@ $.when(off_ajax(),cre_ajax()).done(function(){
   page.base('/');
   page('*', function(ctx,  next){
     var content = document.querySelector('#content');
-    if (ctx.init) {
+    if (ctx.init || cpage==ctx.params[0]) {
        next();
     } else {
       content.classList.add('transition');
       setTimeout(function(){
-        next();  }, 150);
+        next();
+      }, 250);
     }
   });
   page('/', showHome);
@@ -122,15 +128,17 @@ function showTheme(ctx) {
 }
 
 function render(ctx, html, hide) {
-  $('.mdl-layout__content').animate({scrollTop:0}, 300, 'swing');
   var el = document.getElementById('content');
   if (hide) {
     el.classList.add('hide');
     setTimeout(function(){
       el.innerHTML = html;
-      el.classList.remove('hide', 'transition');
       fillPage(ctx);
-    }, 150);
+      if(cpage!=ctx.params[0])
+        $('.mdl-layout__content').animate({scrollTop:0}, 0, 'swing');
+      el.classList.remove('hide', 'transition');
+      cpage=ctx.params[0];
+    }, 250);
   } else {
     el.innerHTML = html;
     fillPage(ctx);
@@ -173,7 +181,7 @@ function fillhome(){
   var thumb = Array(24);
   for(var i = 0; i<12; i++){
     itemOfc = `
-      <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp theme-card" id="off_${i}">
+      <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="off_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
           <a href="/theme?ofc=${i+ofcRand}">
             <div class="mdl-card__actions">
@@ -182,7 +190,7 @@ function fillhome(){
           </a>
       </div>`;
     itemCrt =`
-      <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp theme-card" id="cre_${i}">
+      <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="cre_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
           <a href="/theme?crt=${i+creRand}">
             <div class="mdl-card__actions">
@@ -212,7 +220,7 @@ function fillOfficials(qs){
   var itemOfc = '';
   var thumb = [];
   for(var i=0+offset; i<24+offset && i<idx_ofc.length; i++){
-    itemOfc = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp theme-card" id="ofc_${i}">
+    itemOfc = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="ofc_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
           <a href="/theme?ofc=${i}">
             <div class="mdl-card__actions">
@@ -238,7 +246,7 @@ function fillCreators(qs){
   var itemCrt = '';
   var thumb = [];
   for(var i=0+offset; i<24+offset && i<idx_crt.length; i++){
-    itemCrt = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp theme-card" id="crt_${i}">
+    itemCrt = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="crt_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
           <a href="/theme?crt=${i}">
             <div class="mdl-card__actions">
@@ -283,7 +291,7 @@ function fillSearch(qs){
         ctgr='crt';
         t_idx=result[i].index-214;
       }
-      itemQry = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--2dp theme-card" id="qry_${i}">
+      itemQry = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="qry_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
           <a href="/theme?${ctgr}=${t_idx}">
             <div class="mdl-card__actions">
@@ -390,7 +398,7 @@ $('input[name=\'sample\']').on('keyup',function(e){
       if(qry.length>=3) page('/search?q='+encodeURI(qry));
       else{
         var snackbarContainer = document.querySelector('#toast-download');
-        var data = {message: 'Please type 3 characters or more..'};
+        var data = {message: 'Type 3 characters or more..'};
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
       }
     }
@@ -398,5 +406,8 @@ $('input[name=\'sample\']').on('keyup',function(e){
 });
 
 function toggleDrawer(a){
-  $('.mdl-layout__drawer-button').trigger();
+  document.querySelector('.mdl-layout__obfuscator').classList.remove('is-visible');
+  document.querySelector('.mdl-layout__drawer').classList.remove('is-visible');
+  // var d = document.querySelector('.mdl-layout');
+  // d.MaterialLayout.toggleDrawer();
 }

@@ -1,14 +1,17 @@
 body{
-  color: #FFFFFF;
-  background-color: #313131;
+  color: #000;
+  background-color: #FFF;
 }
 a{
   text-decoration: none;
 }
+a > .title-section{
+  color: #0091EA;
+}
 
 .mdl-layout__drawer{
-  background-color: #292929;
-  border-right-color: #313131;
+  background-color: #000;
+  border-right-color: #000;
   color: #FFFFFF;
 }
 .mdl-layout__drawer a{
@@ -19,15 +22,15 @@ a{
   color: #DDDDDD;
 }
 .mdl-layout__drawer .mdl-navigation .mdl-navigation__link:hover{
-  background-color: #313131;
+  background-color: #444;
 }
 
 .mdl-layout__header{
-  background-color: #388E3C;
+  background-color: #5D4037;
 }
 
 .layout-banner{
-  margin-bottom: 30px;
+  margin-bottom: 10px;
 }
 .layout-banner img{
   max-width: 100%;
@@ -47,21 +50,22 @@ a{
 }
 div.content-section{
   margin-top: 10px;
-  margin-bottom:40px;
+  margin-bottom:20px;
   padding-top: 20px;
   padding-bottom: 20px;
   width: 100%;
 }
 .title-section{
-  color: #388E3C;
   padding-left:20px;
+  margin-bottom: 20px;
 }
 .theme-box{
-  margin-top: 20x;
+  margin-top: 0px;
+  margin-bottom: 20px;
 }
 .theme-card{
   height: 250px;
-  background-color: #292929;
+  background-color: #000;
 }
 .mdl-card__actions {
   height: 52px;
@@ -75,7 +79,6 @@ div.content-section{
   display: block;
   margin-left: auto;
   margin-right: auto;
-
 }
 .theme-desc{
   display: block;
@@ -107,7 +110,7 @@ div.content-section{
   margin-left: 10px;
 }
 .mdl-button.ios-button:focus{
-  background-color: #EEEEEE;
+  background-color: #EEE;
 }
 
 
@@ -120,13 +123,16 @@ div.content-section{
   -webkit-transition: -webkit-transform 300ms ease-out, opacity 300ms ease-out;
 }
 #content.transition {
-  -webkit-transform: scale(0.3,0.5);
-  -webkit-transform: translateY(-50px);
+  -webkit-transform: scale(0.5,0.5);
+  -webkit-transform: translateY(400px);
   opacity: 0;
 }
 .mdl-mini-footer{
   margin-top: 20px;
-  background-color: #292929;
+  background-color: #000;
+}
+#toast-download{
+  background-color: #0091EA;
 }
 
 
@@ -135,45 +141,53 @@ div.content-section{
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    /*
     -webkit-justify-content: flex-end;
         -ms-flex-pack: end;
             justify-content: flex-end;
+            */
+-webkit-justify-content: center;
+          -ms-flex-pack: end;
+        justify-content: center;
     -webkit-align-items: center;
-        -ms-flex-align: center;
+         -ms-flex-align: center;
             align-items: center;
-    height: 56px;
-    -webkit-flex-flow: row wrap;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
+                 height: 56px;
+      -webkit-flex-flow: row wrap;
+          -ms-flex-flow: row wrap;
+              flex-flow: row wrap;
 }
 .pagination > * {
     -webkit-flex: none;
         -ms-flex: none;
             flex: none;
-    margin-right: 24px;
-      margin-top: 40px;
-   margin-bottom: 40px;
+     margin-left: 10px;
+     margin-right: 10px;
 }
-.pagination-num{
-  font-size: 20px;
+.pagination-indicator{
+  color: #000;
+  font-size: 16px;
   text-align: center;
 }
+
 .pagination-prev .pagination-next{
-  font-size: 20px;
+  font-size: 14px;
   position: relative;
 }
 
 .mdl-button--fab.mdl-button--colored:hover{
-  background-color: #EF6C00;
+  color: #000;
+  background-color: #40C4FF;
 }
 .mdl-button--fab.mdl-button--colored{
-  background-color: #EF6C00;
+  color: #000;
+  background-color: #40C4FF;
 }
 .mdl-button--fab.mdl-button--colored:focus:not(:active){
- background-color:  #E65100;
+ background-color:  #80D8FF;
 }
 .mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled:focus:not(:active){
-  background-color: rgba(0,0,0,.26);
+  background-color: rgba(128,216,255,.50);
 }
 
 
@@ -183,7 +197,7 @@ div.content-section{
 /*===========LOADING     */
 .loading-message{
   font-size: 21px;
-  color: #DDD;
+  color: #FFF;
   margin-top: 10px;
 }
 .pg-loading-logo{
