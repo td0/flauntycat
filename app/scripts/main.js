@@ -5,10 +5,10 @@ v - Get themes json from remote github pages
 v - Create homepage routes
 v - Create other pages
 v - do theme page
-- fill official page
-- create official pagination
-- do creators part
-- do search page
+v - fill official page
+v - create official pagination
+v - do creators part
+v - do search page
 */
 
 var loading_gif = '/images/loading'+Math.floor((Math.random() * 7))+'.gif'
@@ -96,8 +96,9 @@ $.when(off_ajax(),cre_ajax()).done(function(){
     decodeURLComponents:true,
     hashbang:false
   });
-
-  loading_screen.finish();
+  setTimeout(function(){
+    loading_screen.finish();
+  },3000);
 });
 
 //--> Pages.js
@@ -132,9 +133,7 @@ function render(ctx, html, hide) {
     }, 150);
   } else {
     el.innerHTML = html;
-    setTimeout(function(){
-      fillPage(ctx);
-    },3000);
+    fillPage(ctx);
   }
 }
 
