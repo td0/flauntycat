@@ -306,7 +306,7 @@ function fillSearch(qs){
       $('#qry_'+i).css('background',`url('${thumb[i]}') center / cover`);
     }
   }
-  var searchcount = '<b style="color:green">Search ';
+  var searchcount = '<b style="color:#0091EA">Search ';
   searchcount += (result.length > 1)? 'results </b>: ':'result </b>: ';
   searchcount += result.length;
   $('#search-result').html(searchcount);

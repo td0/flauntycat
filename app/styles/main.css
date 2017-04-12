@@ -74,7 +74,6 @@ div.content-section{
   color: white;
 }
 
-
 .theme-thumb{
   display: block;
   margin-left: auto;
@@ -84,7 +83,7 @@ div.content-section{
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 120px;
+  margin-bottom: 50px;
 }
 .img-full{
   padding:0px;
@@ -137,7 +136,7 @@ div.content-section{
 
 
 .pagination{
-    color: #FFF;
+    color: #000;
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -166,7 +165,7 @@ div.content-section{
 }
 .pagination-indicator{
   color: #000;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 

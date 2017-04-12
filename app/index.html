@@ -4,9 +4,19 @@
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Chrome manifest.json API -->
     <link rel="manifest" href="/manifest.json">
+
+    <!-- iOS device webapp API -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon3.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon3.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon3.png">
+    <link rel="apple-touch-startup-image" href="/splash-startup.png">
+
     <title>Line Themes</title>
-    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <!-- Place favicon.ico in the root directory -->
 
     <!-- build:css styles/vendor.css -->
@@ -171,7 +181,7 @@
     <script id="search-page" type="text/x-template">
       <div class="content-section">
         <div class="title-section">
-          <span id='search-result' style="color:#FFF"></span>
+          <span id='search-result'></span>
         </div>
         <div class="pagination">
           <span class="pagination-prev">
@@ -211,7 +221,7 @@
       <div class="content-section">
         <div class="mdl-grid theme-box">
           <div class="mdl-cell mdl-cell--5-col mdl-cell--3-col-tablet mdl-cell--4-col-phone">
-            <img class="theme-thumb mdl-shadow--2dp" src="/images/dummy/thumb-preview.png" width="186" height="260">
+            <img class="theme-thumb mdl-shadow--8dp" src="/images/dummy/thumb-preview.png" width="186" height="260">
           </div>
           <div class="mdl-cell mdl-cell--7-col mdl-cell--3-col-tablet mdl-cell--4-col-phone theme-desc">
             <center>
@@ -224,7 +234,10 @@
             <div><img src="/images/icon-ios-1.png" height="30">
               <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect ios-button">
               download</button>
-            </div>
+            </div><br><br>
+            <button class="mdl-button mdl-js-button mdl-button--icon">
+              <i class="material-icons">arrow_upward</i>
+            </button>
             </center>
           </div>
           <div class="mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--4-col-phone">
