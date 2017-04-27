@@ -95,12 +95,13 @@ $.when(off_ajax(),cre_ajax()).done(function(){
   page('creators', showCreators);
   page('search', showSearch);
   page('theme', showTheme);
+  page('*', shownotfound);
   page({
     click:true,
     popstate:true,
     dispatch:true,
     decodeURLComponents:true,
-    hashbang:false
+    hashbang:true
   });
   setTimeout(function(){
     loading_screen.finish();
@@ -125,6 +126,9 @@ function showSearch(ctx) {
 }
 function showTheme(ctx) {
   render(ctx, template('theme'), !ctx.init);
+}
+function shownotfound(ctx){
+  render(ctx, template('notfound'), !ctx.init);
 }
 
 function render(ctx, html, hide) {
@@ -170,6 +174,8 @@ function fillPage(ctx){
     case 'theme':
       fillTheme(ctx.querystring);
       break;
+    default:
+      console.log('404!');
   };
 }
 
@@ -411,4 +417,11 @@ function toggleDrawer(a){
   document.querySelector('.mdl-layout__drawer').classList.remove('is-visible');
   // var d = document.querySelector('.mdl-layout');
   // d.MaterialLayout.toggleDrawer();
+}
+
+function aboutSnackbar(a){
+  toggleDrawer();
+  var snackbarContainer = document.querySelector('#toast-download');
+  var data = {message: 'Author : td0'};
+  snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }

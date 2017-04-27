@@ -45,6 +45,7 @@
             mdl-layout--fixed-header">
       <header class="mdl-layout__header">
         <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Line Theme</span>
           <div class="mdl-layout-spacer"></div>
           <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable
                       mdl-textfield--floating-label mdl-textfield--align-right">
@@ -60,10 +61,11 @@
         </div>
       </header>
       <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title"><a href="/" onclick="toggleDrawer(this)">LINE THEMES</a></span>
+        <!-- <span class="mdl-layout-title"><a href="/" onclick="toggleDrawer(this)">LINE THEMES</a></span> -->
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="officials" onclick="toggleDrawer(this)">Officials</a>
           <a class="mdl-navigation__link" href="creators" onclick="toggleDrawer(this)">Creators</a>
+          <a class="mdl-navigation__link" onclick="aboutSnackbar(this)">About</a>
         </nav>
       </div>
       <main class="mdl-layout__content">
@@ -257,6 +259,16 @@
           </div>
         </div>
 
+      </div>
+    </script>
+
+    <script id="notfound-page" type="text/x-template">
+      <div class="content-section">
+        <center>
+        <br><br><br><br>
+          <h2>404</h2>
+          <span>Not Found</span>
+        </center>
       </div>
     </script>
 

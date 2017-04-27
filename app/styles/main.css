@@ -26,7 +26,8 @@ a > .title-section{
 }
 
 .mdl-layout__header{
-  background-color: #5D4037;
+  background-color: #00695C;
+  /*background-color: #5D4037;*/
 }
 
 .layout-banner{
@@ -130,9 +131,9 @@ div.content-section{
   margin-top: 20px;
   background-color: #000;
 }
-#toast-download{
+/*#toast-download{
   background-color: #0091EA;
-}
+}*/
 
 
 .pagination{
@@ -175,15 +176,20 @@ div.content-section{
 }
 
 .mdl-button--fab.mdl-button--colored:hover{
-  color: #000;
-  background-color: #40C4FF;
+  /*color: #000;
+  background-color: #40C4FF;*/
+  color: #fff;
+  background-color: #F44336;
 }
 .mdl-button--fab.mdl-button--colored{
-  color: #000;
-  background-color: #40C4FF;
+  /*color: #000;
+  background-color: #40C4FF;*/
+  color: #fff;
+  background-color: #EF5350;
 }
 .mdl-button--fab.mdl-button--colored:focus:not(:active){
- background-color:  #80D8FF;
+/* background-color:  #80D8FF;*/
+  background-color:  #E53935;
 }
 .mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled:focus:not(:active){
   background-color: rgba(128,216,255,.50);
