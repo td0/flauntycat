@@ -283,13 +283,14 @@ function fillSearch(qs){
   if(result.length>0){
     var itemQry = '', ctgr = '',t_idx;
     var thumb = Array(result.length);
+    var ofc_len = idx_ofc.length;
     for(var i= 0+offset; i<result.length && i<24+offset;i++){
-      if(result[i].index<214){
+      if(result[i].index < ofc_len){
         ctgr='ofc';
         t_idx=result[i].index;
       }else{
         ctgr='crt';
-        t_idx=result[i].index-214;
+        t_idx=result[i].index - ofc_len;
       }
       itemQry = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="qry_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
