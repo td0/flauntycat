@@ -2,7 +2,7 @@
   "short_name": "LineTheme",
   "name": "Flaunty Cat",
   "display": "standalone",
-  "theme_color": "#5D4037",
+  "theme_color": "#00695C",
   "icons": [
     {
       "src": "apple-touch-icon3.jpg",
