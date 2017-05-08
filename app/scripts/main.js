@@ -105,7 +105,7 @@ $.when(off_ajax(),cre_ajax()).done(function(){
     popstate:true,
     dispatch:true,
     decodeURLComponents:true,
-    hashbang:true
+    hashbang:false
   });
   setTimeout(function(){
     loading_screen.finish();
