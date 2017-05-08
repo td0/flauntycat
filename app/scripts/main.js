@@ -1,4 +1,8 @@
 /*
+officials
+https://api.myjson.com/bins/d3d61
+creators'
+https://api.myjson.com/bins/14hazt
 
 TO-DOs:
 v - Get themes json from remote github pages

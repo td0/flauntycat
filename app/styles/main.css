@@ -80,6 +80,10 @@ div.content-section{
   margin-left: auto;
   margin-right: auto;
 }
+.thumb-details{
+  max-width: 100%;
+  width: 340px;
+}
 .theme-desc{
   display: block;
   margin-left: auto;
@@ -192,7 +196,7 @@ div.content-section{
   background-color:  #E53935;
 }
 .mdl-button--colored[disabled][disabled], .mdl-button--colored.mdl-button--disabled.mdl-button--disabled:focus:not(:active){
-  background-color: rgba(128,216,255,.50);
+  background-color: #EF9A9A;
 }
 
 
