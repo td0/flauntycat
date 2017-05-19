@@ -1,8 +1,11 @@
 /*
 officials
 https://api.myjson.com/bins/d3d61
+https://firebasestorage.googleapis.com/v0/b/tema-line.appspot.com/o/json%2Fofficials.json?alt=media&token=aebb8c83-4325-4e4b-98e7-a24ce1f08b62
+
 creators'
 https://api.myjson.com/bins/14hazt
+https://firebasestorage.googleapis.com/v0/b/tema-line.appspot.com/o/json%2Fcreators.json?alt=media&token=29845552-c3a7-4edd-937a-ca4a15bb7ae8
 
 TO-DOs:
 v - Get themes json from remote github pages
@@ -61,7 +64,7 @@ const thm_templates= {
 function off_ajax(){
   return $.ajax({
             dataType: 'json',
-            url: 'https://raw.githubusercontent.com/td0/floret-snitcher/master/output/officials.json',
+            url: 'https://firebasestorage.googleapis.com/v0/b/tema-line.appspot.com/o/json%2Fofficials.json?alt=media&token=aebb8c83-4325-4e4b-98e7-a24ce1f08b62',
             success: function(a,b,data){
               thm_officials = a;
             }
@@ -70,7 +73,7 @@ function off_ajax(){
 function cre_ajax(){
   return $.ajax({
            dataType: 'json',
-           url: 'https://raw.githubusercontent.com/td0/floret-snitcher/master/output/creators.json',
+           url: 'https://firebasestorage.googleapis.com/v0/b/tema-line.appspot.com/o/json%2Fcreators.json?alt=media&token=29845552-c3a7-4edd-937a-ca4a15bb7ae8',
            success: function(a,b,data){
             thm_creators = a;
            }
@@ -107,9 +110,9 @@ $.when(off_ajax(),cre_ajax()).done(function(){
     decodeURLComponents:true,
     hashbang:false
   });
-  setTimeout(function(){
+  // setTimeout(function(){
     loading_screen.finish();
-  },3000);
+  // },3000);
 });
 
 //--> Pages.js
@@ -342,6 +345,9 @@ function fillTheme(qs){
   $('.theme-thumb').attr('src',
     thm_templates.img.thumb.replace('<THEME_ID>', thm[1]));
   $('#theme-name').html(thm[0]);
+  for(var i=0;i<5;i++){
+    $(`#img-full-${i+1}`).attr('src','/images/dummy/full-preview.png');
+  }
   for(var i=0;i<5;i++){
     $(`#img-full-${i+1}`).attr('src',thm_templates.img[i].replace('<THEME_ID>', thm[1]));
   }

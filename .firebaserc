@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "linetheme-d6c0d"
+    "default": "tema-line",
+    "TemaLine": "tema-line"
   }
 }
