@@ -194,23 +194,19 @@ function fillhome(){
   var thumb = Array(24);
   for(var i = 0; i<12; i++){
     itemOfc = `
-      <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="off_${i}">
+      <a href="/theme?ofc=${i+ofcRand}" class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="off_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
-          <a href="/theme?ofc=${i+ofcRand}">
-            <div class="mdl-card__actions">
-              <span class="card-image__themename" id="off_name${i}">${idx_ofc[i+ofcRand]}</span>
-            </div>
-          </a>
-      </div>`;
+        <div class="mdl-card__actions">
+          <span class="card-image__themename" id="off_name${i}">${idx_ofc[i+ofcRand]}</span>
+        </div>
+      </a>`;
     itemCrt =`
-      <div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="cre_${i}">
+      <a href="/theme?crt=${i+creRand}" class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="cre_${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
-          <a href="/theme?crt=${i+creRand}">
             <div class="mdl-card__actions">
               <span class="card-image__themename" id="cre_name${i}">${idx_crt[i+creRand]}</span>
             </div>
-          </a>
-      </div>`;
+      </a>`;
     $('#theme-officials').append(itemOfc);
     $('#theme-creators').append(itemCrt);
     thumb[i]=thm_templates.img.thumb.replace('<THEME_ID>',thm_officials[idx_ofc[i+ofcRand]]);
@@ -233,17 +229,16 @@ function fillOfficials(qs){
   var itemOfc = '';
   var thumb = [];
   for(var i=0+offset; i<24+offset && i<idx_ofc.length; i++){
-    itemOfc = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="ofc_${i}">
+    itemOfc = `
+      <a class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="ofc_${i}" href="/theme?ofc=${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
-          <a href="/theme?ofc=${i}">
-            <div class="mdl-card__actions">
-              <span class="card-image__themename" id="off_name${i}">${idx_ofc[i]}</span>
-            </div>
-          </a>
-      </div>`;
-      $('#theme-officials').append(itemOfc);
-      thumb[i]=thm_templates.img.thumb.replace('<THEME_ID>',thm_officials[idx_ofc[i]]);
-      $('#ofc_'+i).css('background',`url('${thumb[i]}') center / cover`);
+        <div class="mdl-card__actions">
+          <span class="card-image__themename" id="off_name${i}">${idx_ofc[i]}</span>
+        </div>
+      </a>`;
+    $('#theme-officials').append(itemOfc);
+    thumb[i]=thm_templates.img.thumb.replace('<THEME_ID>',thm_officials[idx_ofc[i]]);
+    $('#ofc_'+i).css('background',`url('${thumb[i]}') center / cover`);
   }
 
   paginator(pg[1],idx_ofc.length,'officials?');
@@ -259,14 +254,13 @@ function fillCreators(qs){
   var itemCrt = '';
   var thumb = [];
   for(var i=0+offset; i<24+offset && i<idx_crt.length; i++){
-    itemCrt = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="crt_${i}">
+    itemCrt = `
+      <a class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="crt_${i}" href="/theme?crt=${i}">
         <div class="mdl-card__title mdl-card--expand"></div>
-          <a href="/theme?crt=${i}">
-            <div class="mdl-card__actions">
-              <span class="card-image__themename" id="crt_name${i}">${idx_crt[i]}</span>
-            </div>
-          </a>
-      </div>`;
+        <div class="mdl-card__actions">
+          <span class="card-image__themename" id="crt_name${i}">${idx_crt[i]}</span>
+        </div>
+      </a>`;
       $('#theme-creators').append(itemCrt);
       thumb[i]=thm_templates.img.thumb.replace('<THEME_ID>',thm_creators[idx_crt[i]]);
       $('#crt_'+i).css('background',`url('${thumb[i]}') center / cover`);
@@ -305,14 +299,13 @@ function fillSearch(qs){
         ctgr='crt';
         t_idx=result[i].index - ofc_len;
       }
-      itemQry = `<div class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="qry_${i}">
-        <div class="mdl-card__title mdl-card--expand"></div>
-          <a href="/theme?${ctgr}=${t_idx}">
-            <div class="mdl-card__actions">
-              <span class="card-image__themename" id="qry_name${i}">${idx_all[result[i].index]}</span>
-            </div>
-          </a>
-        </div>`;
+      itemQry = `
+        <a class="mdl-cell mdl-cell--2-col mdl-card mdl-shadow--4dp theme-card" id="qry_${i}" href="/theme?${ctgr}=${t_idx}">
+          <div class="mdl-card__title mdl-card--expand"></div>
+          <div class="mdl-card__actions">
+            <span class="card-image__themename" id="qry_name${i}">${idx_all[result[i].index]}</span>
+          </div>
+        </a>`;
       $('#theme-search').append(itemQry);
       thumb[i] = (ctgr=='ofc')?
         thm_templates.img.thumb.replace('<THEME_ID>',thm_officials[idx_ofc[t_idx]]):
@@ -433,5 +426,6 @@ function aboutSnackbar(a){
   toggleDrawer();
   var snackbarContainer = document.querySelector('#toast-download');
   var data = {message: 'Author : td0'};
-  snackbarContainer.MaterialSnackbar.showSnackbar(data);
+  if(snackbarContainer.className.indexOf('mdl-snackbar--active') === -1)
+    snackbarContainer.MaterialSnackbar.showSnackbar(data);
 }
